@@ -3,6 +3,8 @@ modules = ["nodejs-24"]
 [deployment]
 router = "application"
 deploymentTarget = "autoscale"
+build = ["pnpm", "--filter", "spacesuite", "run", "typecheck"]
+run = ["node", "--experimental-strip-types", "artifacts/spacesuite-app/server.mjs"]
 
 [deployment.postBuild]
 args = ["pnpm", "store", "prune"]
