@@ -1,0 +1,20 @@
+{
+  "name": "spacesuite",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --experimental-strip-types dev-server.mjs",
+    "start": "node --experimental-strip-types dev-server.mjs",
+    "build": "node --check dev-server.mjs && node --check app.js && node --check js/icons.js && node --check js/identity.js && node --check js/push.js && node --check js/rtc.js && node --check js/sheets.js && node --check js/lobby.js && node --check js/room-ui.js && node --check js/social.js",
+    "preview": "node --experimental-strip-types dev-server.mjs",
+    "lint": "node --check dev-server.mjs && node --check app.js && node --check js/icons.js && node --check js/identity.js && node --check js/push.js && node --check js/rtc.js && node --check js/sheets.js && node --check js/lobby.js && node --check js/room-ui.js && node --check js/social.js",
+    "typecheck": "files=$(find functions -type f -name '*.ts' -print) && pnpm exec tsc --noEmit --skipLibCheck --allowImportingTsExtensions --target ES2022 --module NodeNext --moduleResolution NodeNext --lib ES2022,DOM --types node $files"
+  },
+  "dependencies": {
+    "@google/genai": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:"
+  }
+}
